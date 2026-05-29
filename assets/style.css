@@ -1,0 +1,290 @@
+/* ============================================================
+   Sourav Kundu — personal site
+   Plain CSS, no build step. Mobile-first, responsive, accessible.
+   ============================================================ */
+
+:root {
+  --bg: #fbfaf8;
+  --surface: #ffffff;
+  --surface-alt: #f3f0ea;
+  --ink: #1d1c1a;
+  --ink-soft: #4a4742;
+  --accent: #2f5d62;
+  --accent-strong: #244a4e;
+  --accent-tint: #e3ebe9;
+  --border: #e6e1d8;
+  --max-width: 880px;
+  --radius: 14px;
+  --shadow: 0 12px 30px rgba(31, 28, 24, 0.08);
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181a;
+    --surface: #1e2123;
+    --surface-alt: #22262a;
+    --ink: #f1efe9;
+    --ink-soft: #c3c0b9;
+    --accent: #7fb3b2;
+    --accent-strong: #9cc6c5;
+    --accent-tint: #243033;
+    --border: #2f3438;
+    --shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* ---------- Skip link (accessibility) ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 0 0 var(--radius) 0;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ---------- Links ---------- */
+a {
+  color: var(--accent-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+a:hover {
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(180deg, var(--accent-tint), var(--bg));
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero__text {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.hero__media {
+  flex: 0 0 auto;
+  order: 2; /* photo to the right on desktop */
+  margin-inline-start: auto;
+}
+
+.hero__eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.hero__title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.hero__tagline {
+  margin: 0;
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  color: var(--ink-soft);
+  max-width: 36ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.avatar {
+  display: block;
+  width: clamp(140px, 30vw, 220px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--surface);
+  box-shadow: var(--shadow);
+  background: var(--surface);
+}
+
+/* On narrow screens, stack: photo above the text, centered */
+@media (max-width: 640px) {
+  .hero__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .hero__media {
+    order: -1;
+    margin-inline-start: 0;
+  }
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.15rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.12s ease, background 0.12s ease, color 0.12s ease;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn--primary:hover {
+  background: var(--accent-strong);
+  color: #fff;
+}
+.btn--ghost {
+  border: 1.5px solid var(--accent);
+  color: var(--accent-strong);
+}
+.btn--ghost:hover {
+  background: var(--accent-tint);
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding-block: clamp(2.25rem, 5vw, 3.5rem);
+}
+.section--alt {
+  background: var(--surface-alt);
+  border-block: 1px solid var(--border);
+}
+
+.section__heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+}
+
+.prose p {
+  margin: 0 0 1.1rem;
+  color: var(--ink-soft);
+  max-width: 68ch;
+}
+.prose p:last-child {
+  margin-bottom: 0;
+}
+.prose strong {
+  color: var(--ink);
+}
+
+/* ---------- Highlights ---------- */
+.highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+  max-width: 70ch;
+}
+.highlights li {
+  position: relative;
+  padding-left: 1.75rem;
+  color: var(--ink-soft);
+}
+.highlights li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding-block: clamp(2.25rem, 5vw, 3.25rem);
+}
+.contact-links {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+.contact-links a {
+  font-weight: 600;
+}
+.footer__note {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
