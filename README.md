@@ -7,18 +7,21 @@ site (plain HTML + CSS, no build step) hosted on GitHub Pages and served at:
 
 ## Structure
 
-- `index.html` — the homepage.
-- `assets/style.css` — all styles.
-- `assets/profile-placeholder.svg` — placeholder avatar.
+- `index.html` — the homepage, a single-page scroll with a sticky top nav and
+  these sections: Hero, About, a key-numbers stat strip, **Selected work** (case-study
+  cards), **How I think** (operating principles), **Beyond work** (the human layer),
+  **Path** (career timeline), **Writing** (blog teaser), and **Contact**.
+- `assets/style.css` — all styles (light + dark mode, mobile-first, responsive nav).
+- `assets/profile.jpg` — profile photo. `assets/profile-placeholder.svg` — fallback avatar.
 - `.nojekyll` — tells GitHub Pages to serve files as-is (no Jekyll processing).
 
-The code is organized so that future sections (e.g. a `/blog`) can be added
-later without restructuring.
+The code is organized so that a future `/blog` (and an admin/CMS editor) can be
+added later without restructuring. See the parent workspace notes for the planned
+blog + Git-based CMS approach.
 
-## Add a real profile photo
+## Add / replace the profile photo
 
-Drop a square image at `assets/profile.jpg`, then in `index.html` change the
-avatar `src` from `assets/profile-placeholder.svg` to `assets/profile.jpg`.
+Drop a square image at `assets/profile.jpg` (the hero already points at it).
 
 ## Preview locally
 

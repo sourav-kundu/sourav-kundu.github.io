@@ -4,40 +4,69 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sourav Kundu — Technical Product Leader</title>
-  <meta name="description" content="Sourav Kundu is a Group Product Manager at BrowserStack, building at the intersection of deep engineering and business impact." />
+  <meta name="description" content="Sourav Kundu — Group Product Manager at BrowserStack. A deeply technical product leader who builds at the intersection of rigorous engineering and real business impact. Ex-nuclear-systems engineer, IIM Bangalore MBA, endurance cyclist, builder." />
   <meta name="author" content="Sourav Kundu" />
+  <meta name="theme-color" content="#2f5d62" />
 
   <!-- Open Graph / social preview -->
   <meta property="og:title" content="Sourav Kundu — Technical Product Leader" />
   <meta property="og:description" content="Group Product Manager at BrowserStack. Building at the intersection of deep engineering and business impact." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sourav-kundu.github.io" />
+  <meta property="og:image" content="https://sourav-kundu.github.io/assets/profile.jpg" />
+  <meta name="twitter:card" content="summary" />
 
   <link rel="canonical" href="https://sourav-kundu.github.io/" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="hero" id="top">
+  <!-- ===================== Sticky nav ===================== -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="#top">Sourav&nbsp;Kundu</a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__menu" id="nav-menu" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#thinking">How I think</a>
+        <a href="#beyond">Beyond work</a>
+        <a href="#path">Path</a>
+        <a href="#writing">Writing</a>
+        <a class="nav__cta" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero" aria-labelledby="hero-title">
     <div class="container hero__inner">
       <div class="hero__text">
-        <p class="hero__eyebrow">Group Product Manager &middot; Bengaluru, India</p>
-        <h1 class="hero__title">Hi, I&rsquo;m Sourav Kundu</h1>
+        <p class="hero__eyebrow">Group Product Manager &middot; BrowserStack &middot; Bengaluru, India</p>
+        <h1 class="hero__title" id="hero-title">Hi, I&rsquo;m Sourav Kundu.</h1>
         <p class="hero__tagline">
-          A technical product leader who builds at the intersection of
-          deep engineering and business impact.
+          A deeply technical product leader who builds at the intersection of
+          rigorous engineering and real business impact &mdash; and, lately,
+          a full-stack builder shipping with AI.
         </p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="#about">Read more</a>
+          <a class="btn btn--primary" href="#work">See my work</a>
           <a class="btn btn--ghost" href="https://www.linkedin.com/in/souravkundu-product-builder/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
         </div>
+        <ul class="hero__meta">
+          <li>10+ years building software products</li>
+          <li>APM &rarr; GPM in 6 years</li>
+          <li>Ex nuclear-systems engineer</li>
+        </ul>
       </div>
 
       <div class="hero__media">
@@ -45,132 +74,356 @@
           class="avatar"
           src="assets/profile.jpg"
           alt="Portrait of Sourav Kundu"
-          width="220"
-          height="220"
+          width="240"
+          height="240"
           loading="eager"
           decoding="async"
         />
       </div>
     </div>
-  </header>
+  </section>
 
   <main id="main">
+    <!-- ===================== About ===================== -->
     <section class="section" id="about" aria-labelledby="about-heading">
       <div class="container">
-        <h2 class="section__heading" id="about-heading">About</h2>
-        <div class="prose">
+        <p class="section__eyebrow">About</p>
+        <h2 class="section__heading" id="about-heading">Engineer at heart, product leader by craft.</h2>
+        <div class="prose prose--lead">
           <p>
-            I&rsquo;m a Group Product Manager at BrowserStack, where I lead platform,
-            data, and analytics products. My world is the backend data platform,
-            the computation engine, and the visualization layers that quietly power
-            products generating more than $140M in annual recurring revenue. I like
-            problems that live where rigorous engineering meets real business outcomes.
+            I&rsquo;m a Group Product Manager at BrowserStack, where I lead the
+            platform, data, and analytics layer that quietly powers products
+            generating more than <strong>$140M in annual recurring revenue</strong>.
+            My world runs from the data a client SDK emits, through real-time Kafka
+            ingestion pipelines, to the database schemas and the visualization layer
+            users actually see. I like problems that live where rigorous engineering
+            meets real business outcomes.
           </p>
           <p>
-            I joined BrowserStack as an Associate Product Manager in 2020 and grew
-            into a Group Product Manager &mdash; the only PM at the company promoted
-            four times in under five years, and a recipient of the BrowserStack CEO
-            Hall of Fame award. Before product, I spent five years building
-            mission-critical software for nuclear reactors and real-time operating
-            system kernels for the government. That foundation shaped how I think:
-            correctness, performance, and stability are not afterthoughts.
+            I started in a very small town in West Bengal &mdash; Alipurduar, which
+            had exactly one English-medium school &mdash; and made my way to an M.Tech
+            in Computer Science at BARC, five years building mission-critical software
+            for nuclear reactors, an MBA from IIM Bangalore (top 10% of the batch),
+            and then BrowserStack. I&rsquo;m the only PM in the company&rsquo;s history
+            promoted <strong>four times in under five years</strong>, from Associate
+            PM to Group PM, and a recipient of the <strong>CEO Hall of Fame</strong>.
           </p>
           <p>
-            I&rsquo;m a deeply technical PM. I partner closely with engineering on the
-            things that decide whether a product holds up under load &mdash; data
-            ingestion pipelines with Kafka, data architecture, and database schema
-            choices &mdash; and just as closely with go-to-market teams, value-selling
-            to executives and speaking to audiences of 500 or more. I hold an MBA from
-            IIM Bangalore, and an M.Tech and B.Tech in Computer Science &amp; Engineering.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--alt" id="highlights" aria-labelledby="highlights-heading">
-      <div class="container">
-        <h2 class="section__heading" id="highlights-heading">What I&rsquo;ve done</h2>
-        <ul class="highlights">
-          <li>
-            Built BrowserStack&rsquo;s Test Reporting &amp; Analytics product from
-            scratch, scaling it from zero to 30,000+ monthly active customers with a
-            +50 NPS.
-          </li>
-          <li>
-            Grew test automation framework support &mdash; Cypress, Playwright,
-            Puppeteer &mdash; now used by customers contributing roughly $20M in ARR.
-          </li>
-          <li>
-            Led a performance initiative across 19 global data centers (a 2-core to
-            4-core upgrade plus software optimizations) that improved test execution
-            speed by 30% and cut deals lost to performance from 20% to under 3%.
-          </li>
-          <li>
-            Overhauled the developer documentation platform, lifting documentation
-            satisfaction from 23% to 78%, roughly doubling the new-user &ldquo;aha
-            moment&rdquo; rate, and driving a ~40% increase in paid conversions.
-          </li>
-          <li>
-            Lead a team of product managers accountable for the work of multiple
-            engineering squads &mdash; 35+ engineers in all.
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="beliefs" aria-labelledby="beliefs-heading">
-      <div class="container">
-        <h2 class="section__heading" id="beliefs-heading">How I think</h2>
-        <div class="prose">
-          <p>
-            I believe a great product manager should be a true technical partner to
-            engineering, not someone standing at a distance from it. I treat
-            documentation as a product in its own right, because clear docs drive
-            bottom-up, product-led growth. I see data stability and performance as
-            business-critical metrics, not just engineering concerns. And I like to
-            pressure-test architecture against concrete, user-facing requirements &mdash;
-            the design only matters if it holds up where real people meet the product.
+            That engineering foundation shapes how I work: correctness, performance,
+            and stability are first-class product concerns, not afterthoughts. I
+            partner with engineering on the decisions that determine whether a product
+            holds up under load, and just as closely with go-to-market teams &mdash;
+            value-selling to executives and speaking to rooms of 500+ engineers. In
+            the last few months I&rsquo;ve gone further and become a full-stack builder
+            myself, shipping production features and an entire &ldquo;PM Operating
+            System&rdquo; with AI coding tools.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt" id="project" aria-labelledby="project-heading">
+    <!-- ===================== Stat strip ===================== -->
+    <section class="stats" aria-label="Key numbers">
+      <div class="container stats__grid">
+        <div class="stat">
+          <span class="stat__num">0&rarr;30k+</span>
+          <span class="stat__label">Monthly active customers on a product I built from scratch</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">$140M+</span>
+          <span class="stat__label">ARR powered by the platform I lead</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">35</span>
+          <span class="stat__label">Engineers &amp; 4 senior PMs across the squads I&rsquo;m accountable for</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">4&times;</span>
+          <span class="stat__label">Promotions in under 5 years &mdash; a company first</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Selected work ===================== -->
+    <section class="section section--alt" id="work" aria-labelledby="work-heading">
       <div class="container">
-        <h2 class="section__heading" id="project-heading">On the side</h2>
+        <p class="section__eyebrow">Selected work</p>
+        <h2 class="section__heading" id="work-heading">A few things I&rsquo;m proud of building.</h2>
+        <p class="section__intro">
+          A platform PM&rsquo;s work is mostly invisible when it goes right. Here are
+          the initiatives behind the numbers &mdash; each one a problem, a bet, and a
+          measurable outcome.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <h3 class="card__title">Built a 0&rarr;1 product, then turned it into a platform</h3>
+            <p class="card__kicker">Test Reporting &amp; Analytics (formerly Test Observability)</p>
+            <p class="card__body">
+              A first-of-its-kind product in a brand-new category. I ran 50+ deep
+              discovery interviews, then built it end to end &mdash; automatic data
+              capture via SDK, real-time distributed Kafka processing, and the business
+              logic that turns raw test data into debugging, analytics, and automated
+              workflows. After it hit $1M+ ARR standalone, I made the case to the
+              founders to turn it into the default experience for five products,
+              trading standalone revenue for far larger platform leverage.
+            </p>
+            <ul class="card__metrics">
+              <li>0 &rarr; 30,000+ monthly active customers</li>
+              <li>93% weekly retention, +50 NPS, zero paid marketing</li>
+              <li>Default UX across 5 products</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">Owned a company-wide platform vision &mdash; and am executing it</h3>
+            <p class="card__kicker">Unified Automation Test Platform</p>
+            <p class="card__body">
+              I outlined the 3&ndash;5 year vision for unifying all of BrowserStack&rsquo;s
+              automation products onto one common platform powered by Test Reporting &amp;
+              Analytics, won executive buy-in, and now lead the multi-year execution. It
+              means aligning two VPs of Product and six Directors of Product &amp;
+              Engineering whose products my customer-facing platform cuts across &mdash;
+              influence without authority, at scale.
+            </p>
+            <ul class="card__metrics">
+              <li>4 Senior PMs &amp; 35 engineers in the org</li>
+              <li>Sole non-director first-round interviewer (a VP ask)</li>
+              <li>De-facto director of product reporting into a VP</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">Fixed performance across 19 global data centers</h3>
+            <p class="card__kicker">Automate &mdash; the #1 reason deals were lost</p>
+            <p class="card__body">
+              I defined the performance problem as a business problem, built the case,
+              and aligned the founders on a 2-core &rarr; 4-core upgrade across the
+              entire device-grid infrastructure in all 19 data centers, plus a series
+              of software optimizations. I led the six-month program end to end.
+            </p>
+            <ul class="card__metrics">
+              <li>30% faster test execution (100s &rarr; 70s)</li>
+              <li>Deals lost to performance: 20% &rarr; under 3%</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">Made docs a product &mdash; and a growth engine</h3>
+            <p class="card__kicker">Developer documentation platform</p>
+            <p class="card__body">
+              Great docs drive bottom-up, product-led adoption. I helped rebuild the
+              developer documentation platform and treated it like the product it is,
+              measuring satisfaction and the new-user &ldquo;aha moment&rdquo; rate that
+              correlates with paid conversion.
+            </p>
+            <ul class="card__metrics">
+              <li>Docs satisfaction 23% &rarr; 78% in a year</li>
+              <li>New-user &ldquo;aha&rdquo; rate roughly doubled</li>
+              <li>~40% lift in paid conversion across the year</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">Launched modern framework support that compounds today</h3>
+            <p class="card__kicker">Cypress, Playwright &amp; Puppeteer on real-device infra</p>
+            <p class="card__body">
+              Early on as PM for Automate, I built and launched support for the modern
+              test automation frameworks teams were moving to. Customers using them are
+              a major slice of the business today.
+            </p>
+            <ul class="card__metrics">
+              <li>~$20M ARR attributed to these frameworks today</li>
+            </ul>
+          </article>
+
+          <article class="card card--accent">
+            <h3 class="card__title">Became a full-stack builder &mdash; and built a &ldquo;PM Operating System&rdquo;</h3>
+            <p class="card__kicker">Building with AI coding tools</p>
+            <p class="card__body">
+              In the last few months I&rsquo;ve shipped large multi-repo features
+              end-to-end myself &mdash; brief, design, backend, frontend, data flow,
+              DB schema, regression testing, and CI/CD. I also architected a personal
+              &ldquo;PM Operating System&rdquo;: agents that stack-rank blockers across
+              Slack and Jira every morning, watch deal risks and customer sentiment,
+              and power productized stability, performance, and operational-excellence
+              dashboards read weekly by the CTO and VP of Product.
+            </p>
+            <ul class="card__metrics">
+              <li>20+ productized platform health metrics (L0&ndash;L3)</li>
+              <li>A nervous system for an org of 35+</li>
+              <li>Builder, not just definer, of complex metrics</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== How I think ===================== -->
+    <section class="section" id="thinking" aria-labelledby="thinking-heading">
+      <div class="container">
+        <p class="section__eyebrow">How I think</p>
+        <h2 class="section__heading" id="thinking-heading">Operating principles I keep coming back to.</h2>
+        <div class="principles">
+          <div class="principle">
+            <h3>A PM should be a true technical partner.</h3>
+            <p>Not standing at a distance from engineering &mdash; in the data models, the schema choices, the architecture. I pressure-test designs against concrete, user-facing requirements, because a design only matters if it holds up where real people meet the product.</p>
+          </div>
+          <div class="principle">
+            <h3>Stability and performance are business metrics.</h3>
+            <p>I&rsquo;ve proven to a CTO that low data stability has catastrophic, customer-facing impact. Reliability isn&rsquo;t an engineering nicety you bolt on later; it&rsquo;s a number the business should care about and I should own.</p>
+          </div>
+          <div class="principle">
+            <h3>Build the thing, then prove it pays.</h3>
+            <p>From a single-handed ROI calculator that closes executive buyers, to dashboards I build myself &mdash; I&rsquo;d rather demonstrate value concretely than argue it abstractly. Measure, instrument, and hold teams accountable to the number.</p>
+          </div>
+          <div class="principle">
+            <h3>Win the battle in front of you.</h3>
+            <p>I persevere until I do. I like hard, ambiguous problems where the right answer isn&rsquo;t obvious &mdash; and I don&rsquo;t want a role far from the engineering and the business. The closer to where the work actually happens, the better.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Beyond work ===================== -->
+    <section class="section section--alt" id="beyond" aria-labelledby="beyond-heading">
+      <div class="container">
+        <p class="section__eyebrow">Beyond work</p>
+        <h2 class="section__heading" id="beyond-heading">The parts that aren&rsquo;t on a resume.</h2>
+        <div class="cards cards--soft">
+          <article class="card">
+            <h3 class="card__title">Endurance cyclist</h3>
+            <p class="card__body">
+              I rode a 300km BRM brevet just three months after I started cycling.
+              Endurance is the through-line of how I approach most things: show up,
+              keep the pedals turning, finish what I started.
+            </p>
+          </article>
+          <article class="card">
+            <h3 class="card__title">Quantified self</h3>
+            <p class="card__body">
+              I measure to improve. Over 18 months I took myself from 100kg to 72kg and
+              from 38% to 14% body fat, and reversed several out-of-range health markers
+              back into healthy ranges &mdash; medication-free &mdash; through data,
+              DNA-informed nutrition, and consistency.
+            </p>
+          </article>
+          <article class="card">
+            <h3 class="card__title">Builder &mdash; beeingbaniya.com</h3>
+            <p class="card__body">
+              I built <a href="https://www.beeingbaniya.com/" target="_blank" rel="noopener noreferrer">beeingbaniya.com</a>
+              to fix my own habit of overspending &mdash; it tracks and categorizes every
+              transaction and nudges me. It cut my spend by 50% in three months. There&rsquo;s
+              an explore sandbox; you can try it without signing up.
+            </p>
+          </article>
+          <article class="card">
+            <h3 class="card__title">Perpetual competitor</h3>
+            <p class="card__body">
+              School topper, sports secretary, national case-competition winner,
+              gold-medalist photographer. I love to win &mdash; not against people, but
+              against the problem and the person I was yesterday.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Path / timeline ===================== -->
+    <section class="section" id="path" aria-labelledby="path-heading">
+      <div class="container">
+        <p class="section__eyebrow">The path here</p>
+        <h2 class="section__heading" id="path-heading">From reactor control rooms to product leadership.</h2>
+        <ol class="timeline">
+          <li class="timeline__item">
+            <span class="timeline__when">2020 &mdash; now</span>
+            <h3 class="timeline__what">BrowserStack &mdash; APM to Group Product Manager</h3>
+            <p>Leading the Test Reporting &amp; Analytics platform and the company-wide automation platform vision. Four promotions in under five years; CEO Hall of Fame.</p>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__when">2018 &mdash; 2020</span>
+            <h3 class="timeline__what">MBA &mdash; IIM Bangalore</h3>
+            <p>Top 10% of a 429-strong batch among the best of India&rsquo;s engineers. National case-competition winner; multiple finalist finishes. A pre-placement offer from a tech-strategy consulting internship.</p>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__when">2014 &mdash; 2018</span>
+            <h3 class="timeline__what">NPCIL &mdash; Software &amp; Senior Software Engineer (R&amp;D)</h3>
+            <p>Built fail-safe, zero-failure software for nuclear reactors at the Department of Atomic Energy: an in-house RTOS (scheduler, IPC, exception handling) and the test &amp; monitoring system for one of a reactor&rsquo;s two most critical safety systems. Fast-track promotion; top grades three years running.</p>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__when">2013 &mdash; 2016</span>
+            <h3 class="timeline__what">M.Tech, Computer Science &mdash; BARC / Homi Bhabha National Institute</h3>
+            <p>Selected in the top 0.1 percentile. Thesis on formal verification of automatic code-generation systems used for safety- and mission-critical software. Filed a patent on a secure file-transfer protocol for legacy systems.</p>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__when">2009 &mdash; 2013</span>
+            <h3 class="timeline__what">B.Tech, Computer Science &mdash; Heritage Institute of Technology</h3>
+            <p>Department rank 10/125, semester topper, elected Sports Secretary among 2,500+ students, founding member of the ACM student chapter.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== Writing / blog teaser ===================== -->
+    <section class="section section--alt" id="writing" aria-labelledby="writing-heading">
+      <div class="container">
+        <p class="section__eyebrow">Writing</p>
+        <h2 class="section__heading" id="writing-heading">Thoughts, in progress.</h2>
         <div class="prose">
           <p>
-            I built <a href="https://www.beeingbaniya.com/" target="_blank" rel="noopener noreferrer">beeingbaniya.com</a>
-            to scratch my own itch &mdash; a problem I kept running into and wanted to
-            solve properly. It&rsquo;s an explore sandbox: anyone can try it right away,
-            no login required. Have a look.
+            I&rsquo;m starting to write &mdash; on technical product management, building
+            with AI, platform thinking, and the quantified-self experiments I run on
+            myself. The blog is coming soon. In the meantime, the fastest way to follow
+            along is LinkedIn.
           </p>
+        </div>
+        <div class="writing__cta">
+          <a class="btn btn--ghost" href="https://www.linkedin.com/in/souravkundu-product-builder/" target="_blank" rel="noopener noreferrer">Follow on LinkedIn</a>
+          <span class="writing__soon">Blog &mdash; coming soon</span>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- ===================== Contact / footer ===================== -->
   <footer class="footer" id="contact" aria-labelledby="contact-heading">
     <div class="container">
-      <h2 class="section__heading" id="contact-heading">Get in touch</h2>
+      <p class="section__eyebrow">Contact</p>
+      <h2 class="section__heading" id="contact-heading">Let&rsquo;s talk.</h2>
+      <p class="footer__lead">
+        Building something ambitious, hiring for product leadership, or just want to
+        compare notes on platforms, AI, or endurance sport? I&rsquo;d love to hear from you.
+      </p>
       <ul class="contact-links">
-        <li>
-          <a href="https://www.linkedin.com/in/souravkundu-product-builder/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </li>
-        <li>
-          <a href="mailto:sourav.hitk@gmail.com">sourav.hitk@gmail.com</a>
-        </li>
-        <li>
-          <a href="https://www.beeingbaniya.com/" target="_blank" rel="noopener noreferrer">beeingbaniya.com</a>
-        </li>
+        <li><a href="https://www.linkedin.com/in/souravkundu-product-builder/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="mailto:sourav.hitk@gmail.com">sourav.hitk@gmail.com</a></li>
+        <li><a href="https://www.beeingbaniya.com/" target="_blank" rel="noopener noreferrer">beeingbaniya.com</a></li>
       </ul>
       <p class="footer__note">&copy; <span id="year">2026</span> Sourav Kundu. Built with plain HTML &amp; CSS.</p>
     </div>
   </footer>
 
   <script>
-    // Keep the footer year current without a build step.
+    // Footer year, no build step needed.
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle.
+    (function () {
+      var toggle = document.querySelector('.nav__toggle');
+      var menu = document.getElementById('nav-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', function () {
+        var open = menu.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+      // Close the menu after tapping a link (mobile).
+      menu.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          menu.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
   </script>
 </body>
 </html>
