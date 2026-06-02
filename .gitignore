@@ -17,3 +17,6 @@ Desktop.ini
 
 # Logs
 *.log
+
+# stray unreferenced source image (kept locally, not served)
+Sourav-6.png
