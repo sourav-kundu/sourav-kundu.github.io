@@ -1,0 +1,551 @@
+<!-- Proprietary. © Sourav Kundu. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Sorir — An AI-native health OS with persistent memory</title>
+  <meta name="description" content="Sorir (শরীর, 'body') is an AI-native health operating system with persistent memory. A native iOS app built on a provider-agnostic multi-LLM gateway, a four-layer memory architecture, and a grounding rule where SQL computes and the model narrates.">
+  <meta name="theme-color" content="#050507">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sorir — An AI-native health OS with persistent memory">
+  <meta property="og:description" content="One system that actually remembers you. A native iOS health OS built on a multi-LLM gateway, four-layer memory, and evidence-first grounding.">
+  <meta property="og:image" content="assets/sorir-appicon.png">
+
+  <link rel="icon" type="image/png" href="assets/sorir-appicon.png">
+  <link rel="apple-touch-icon" href="assets/sorir-appicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+Bengali:wght@500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ================= NAV ================= -->
+  <nav class="nav">
+    <a class="brand" href="#top" aria-label="Sorir home">
+      <img src="assets/sorir-appicon.png" alt="Sorir app icon — a flowing figure that forms an S">
+      <span>Sorir <span class="bn">শরীর</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#features">Features</a>
+      <a href="#blueprint">Blueprint</a>
+      <a href="#built">How it was built</a>
+      <a href="#design">Design</a>
+      <span class="nav-pill">Pre-release</span>
+    </div>
+  </nav>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero wrap" id="top">
+    <div class="hero-grid">
+      <div class="reveal">
+        <img class="hero-mark" src="assets/sorir-appicon.png" alt="Sorir icon">
+        <span class="eyebrow">AI-native health OS</span>
+        <h1><span class="grad-text">Sorir</span> <span class="script">শরীর</span></h1>
+        <p class="kicker">An AI-native health OS with persistent memory.</p>
+        <p class="lead">One coherent system that connects every signal from your body — food, biomarkers, sleep, recovery — and actually <b>remembers who you are</b>. Native to iOS 26, built evidence-first, engineered to stay cheap at scale.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#blueprint">Read the engineering blueprint</a>
+          <a class="btn btn-ghost" href="#features">See what it does</a>
+        </div>
+        <div class="hero-stats">
+          <div class="st"><b>6</b><span>data pillars</span></div>
+          <div class="st"><b>4-layer</b><span>memory architecture</span></div>
+          <div class="st"><b>~2,500</b><span>tokens of context / call</span></div>
+        </div>
+      </div>
+      <div class="f-shot shot reveal">
+        <div class="phone hero-float">
+          <img src="assets/hero-device.png" alt="Sorir advisor screen: a natural-language meal description is parsed into logged foods with calories and macros, including a spoken voice note, with a running macro total.">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= PROBLEM ================= -->
+  <section id="problem" class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The problem</span>
+      <h2>You already run a health OS.<br>It's just <span class="grad-text">held together by hand.</span></h2>
+      <p class="lead">A serious health routine today is a duct-taped stack of apps that neither remember you nor talk to each other. Sorir replaces the whole stack with one system.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="reveal">
+        <div class="stack-old">
+          <span class="tool-chip"><span class="x">✕</span> Gemini chat</span>
+          <span class="tool-chip"><span class="x">✕</span> MyFitnessPal</span>
+          <span class="tool-chip"><span class="x">✕</span> Athlytic</span>
+          <span class="tool-chip"><span class="x">✕</span> Oura</span>
+          <span class="tool-chip"><span class="x">✕</span> Scattered lab PDFs</span>
+        </div>
+        <div class="arrow-down" aria-hidden="true">↓</div>
+        <div class="one-system">
+          <img src="assets/sorir-appicon.png" alt="">
+          <span>One system that remembers you — and connects every source intelligently.</span>
+        </div>
+      </div>
+      <div class="pains reveal">
+        <div class="pain">
+          <span class="n">01</span>
+          <div><b>No persistent AI memory</b><p>Re-explaining your entire health history to a chatbot every single conversation. Its memory is conversation-bound; yours should be longitudinal.</p></div>
+        </div>
+        <div class="pain">
+          <span class="n">02</span>
+          <div><b>A tedious logging loop</b><p>Chat to estimate a meal, then re-enter it somewhere else. Two tools, one meal, every time.</p></div>
+        </div>
+        <div class="pain">
+          <span class="n">03</span>
+          <div><b>Manual synthesis</b><p>Mentally stitching together recovery, sleep, blood panels and nutrition — work no single app will do for you.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DATA PILLARS ================= -->
+  <section class="wrap" id="pillars">
+    <div class="section-head reveal">
+      <span class="eyebrow">The data layer is the moat</span>
+      <h2>Six pillars of <span class="grad-text">structured, longitudinal</span> health data</h2>
+      <p class="lead">Every signal lands in one open schema — so the AI can connect supplements to biomarkers to training load, over months, not messages.</p>
+    </div>
+    <div class="pillars reveal">
+      <div class="pillar">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18M5 8h6M11 3v18"/><path d="M17 3c-1.5 2-2 4-2 6a2 2 0 0 0 4 0c0-2-.5-4-2-6zM17 11v10"/></svg></div>
+        <b>Food logging</b>
+        <p>Text + audio, never photos. Backed by a three-tier lookup so most meals never touch an LLM.</p>
+      </div>
+      <div class="pillar">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 6 4-14 2 8h6"/></svg></div>
+        <b>Biomarkers</b>
+        <p>~40–45 markers in an open key-value schema. Reference ranges are <em>optimal</em>, not lab-default.</p>
+      </div>
+      <div class="pillar">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></div>
+        <b>Lab PDF parsing</b>
+        <p>Two-stage: fast text extraction first, a vision-LLM fallback only for scanned, image-only reports.</p>
+      </div>
+      <div class="pillar">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v7M8 22l4-7 4 7M7 11l5 1 5-1"/></svg></div>
+        <b>Body composition</b>
+        <p>HealthKit basics plus InBody PDF ingestion — segmental, ECW and visceral detail.</p>
+      </div>
+      <div class="pillar">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3h3l.5 3 2.5 1 2.5-1.5 2 2.5L21 12.5l1.5 2.5-2 2.5-2.5-1.5-2.5 1-.5 3h-3"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <b>Supplements</b>
+        <p>Self-logged and enriched by a reference database, so the AI can tie doses to changing markers over time.</p>
+      </div>
+      <div class="pillar">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7M21 4v5h-5"/></svg></div>
+        <b>Day-one history import</b>
+        <p>Upload 12 months of blood panels and 26 body scans at once. One batched summary call — so the AI starts knowledgeable, not cold.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURES ================= -->
+  <section id="features" class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What it does</span>
+      <h2>A clinical sports nutritionist <span class="grad-text">who is also a data scientist</span></h2>
+      <p class="lead">Not a hype coach. Every surface is evidence-based, grounded in your own numbers, and built to feel like it belongs on iOS 26.</p>
+    </div>
+
+    <!-- advisor -->
+    <div class="feature">
+      <div class="f-copy reveal">
+        <span class="tag">Advisor with memory</span>
+        <h3>Talk to something that already knows your history</h3>
+        <p>The advisor assembles your full longitudinal context before it answers — profile, a rolling clinical summary, semantically-retrieved past events, and freshly-computed numbers. It's what a conversation-bound assistant structurally cannot do.</p>
+        <ul class="feat-list">
+          <li><b>Database-bound memory</b>, not conversation-bound — it persists across every session.</li>
+          <li>Answers are grounded in computed values, never guessed from raw rows.</li>
+          <li>A clinical, evidence-first voice — reference ranges follow sports-medicine and longevity literature.</li>
+        </ul>
+      </div>
+      <div class="f-shot shot reveal">
+        <div class="phone"><img src="assets/hero-device.png" alt="Advisor conversation parsing a described meal into individual logged foods with per-item calories and macros and a running total."></div>
+      </div>
+    </div>
+
+    <!-- food logging -->
+    <div class="feature rev">
+      <div class="f-copy reveal">
+        <span class="tag">Text &amp; audio food logging</span>
+        <h3>Say what you ate. It does the rest.</h3>
+        <p>Type or speak a meal in plain language. A deterministic parser handles quantities, units and fractions first; a single cheap model call fires only when an item is genuinely ambiguous. On-device dictation commits each phrase and survives pauses.</p>
+        <ul class="feat-list">
+          <li><b>Deterministic-first</b> — most items are matched with no LLM at all.</li>
+          <li>Every log does a <b>write-then-read to Apple Health</b>, so totals never double-count.</li>
+          <li>Refine one of your own foods and corrected macros retro-propagate to past logs.</li>
+        </ul>
+      </div>
+      <div class="f-shot shot reveal">
+        <div class="phone"><img src="assets/screen-food-input.png" alt="The 'Tell us what you ate' sheet with a sample entry '2 rotis and a bowl of dal', a Speak button and a Log Meal button."></div>
+      </div>
+    </div>
+
+    <!-- dashboard / energy -->
+    <div class="feature">
+      <div class="f-copy reveal">
+        <span class="tag">Energy dashboard</span>
+        <h3>The whole picture, sourced live from Apple Health</h3>
+        <p>Calorie balance, macros, workouts and multi-month trends — all read live on-device, with nothing stored as a stale total. Balance is simply consumed minus spent, computed the moment you look.</p>
+        <ul class="feat-list">
+          <li>Spent, consumed and balance read <b>live from HealthKit</b>, never cached.</li>
+          <li>7-day and weekly calorie-balance trends with weight overlay.</li>
+          <li>Macro-consumption history you can drill into by nutrient.</li>
+        </ul>
+      </div>
+      <div class="f-shot shot reveal">
+        <div class="phone"><img src="assets/screen-energy.png" alt="Energy dashboard showing a calorie-balance ring, macro breakdown, workouts from Apple Health, and multi-month calorie-balance and macro trend charts. Demo data."></div>
+      </div>
+    </div>
+
+    <!-- liveliness / readiness -->
+    <div class="feature rev">
+      <div class="f-copy reveal">
+        <span class="tag">Liveliness &amp; recovery</span>
+        <h3>Am I recovered — push, or rest?</h3>
+        <p>Liveliness is the hero metric of the Today screen: a 0–100 readiness score of you today versus your own 60-day baseline. HRV-led, with five contributors, so a normal day always anchors around the middle and a real change stands out.</p>
+        <ul class="feat-list">
+          <li>Relative to <b>your own baseline</b> — not a population average.</li>
+          <li>Contributors: HRV, resting heart rate, sleep, respiration, body temperature.</li>
+          <li>A one-line read on whether today is a day to train or recover.</li>
+        </ul>
+      </div>
+      <div class="f-shot shot reveal">
+        <div class="mock"><img src="assets/screen-liveliness.png" alt="Liveliness readiness screen: a speedometer gauge reading 80 'READY', up 14% vs a 60-day average, with contributor rows for HRV, resting heart rate, sleep, respiration and body temperature. Demo data."></div>
+      </div>
+    </div>
+
+    <!-- sleep + insights combined -->
+    <div class="feature">
+      <div class="f-copy reveal">
+        <span class="tag">Sleep &amp; proactive insights</span>
+        <h3>It connects the dots you'd never sit down to connect</h3>
+        <p>A nightly composite sleep score against science-anchored targets, plus a background insight engine that reads across all six pillars and surfaces findings without being asked — the kind of cross-month synthesis no single app will do for you.</p>
+        <ul class="feat-list">
+          <li>Sleep score with a scrubbable hypnogram and per-source breakdown.</li>
+          <li>A scheduled background worker mines months of data for what changed.</li>
+          <li>Example insight: <em>“Your Vitamin D moved from 28 → 52 ng/mL since you raised the dose three months ago — maintain, don't increase.”</em></li>
+        </ul>
+      </div>
+      <div class="f-shot shot reveal">
+        <div class="mock"><img src="assets/screen-sleep.png" alt="Sleep score screen showing a composite score of 78 'GOOD' with contributor rows for duration, REM, deep sleep, restfulness, efficiency, latency and timing. Demo data."></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BLUEPRINT (centerpiece) ================= -->
+  <section id="blueprint" class="blueprint">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">The engineering blueprint</span>
+        <h2>How it actually <span class="grad-text">works</span></h2>
+        <p class="lead">A native client, a dedicated serverless backend, and a Postgres brain — wired together so the AI is powerful, personal, grounded, and cheap. This is the part built to make an engineer lean in.</p>
+      </div>
+
+      <!-- architecture diagram -->
+      <div class="bp-arch reveal">
+        <div class="arch">
+          <div class="node client">
+            <div class="h"><span class="dot"></span> iOS client · SwiftUI + Liquid Glass</div>
+            <div class="sub">HealthKit spine · on-device Apple Speech · Sign in with Apple · Keychain</div>
+          </div>
+          <div class="arch-conn">custom JWT (Bearer) · transcript text + aggregate snapshots <span>— never raw HealthKit samples</span> ↓</div>
+
+          <div class="arch-backend">
+            <div class="lbl">Dedicated Vercel backend · TypeScript · Hono</div>
+            <div class="arch-mods">
+              <div class="node">
+                <div class="h"><span class="dot"></span> Auth middleware</div>
+                <div class="sub">Bearer → userId · custom JWT, not a hosted auth SDK</div>
+              </div>
+              <div class="node">
+                <div class="h"><span class="dot"></span> Nutrition pipeline</div>
+                <div class="sub">3-tier: seed DB → community cache → LLM estimate → write back</div>
+              </div>
+              <div class="node wide">
+                <div class="h"><span class="dot"></span> LLM gateway</div>
+                <div class="sub"><code>complete()</code> · <code>object()</code> · <code>objectFromImage()</code> — one interface, provider-swappable · use-case → model table · hard paid-tier gate · per-call cost meter</div>
+              </div>
+              <div class="node wide">
+                <div class="h"><span class="dot"></span> Memory assembler <span style="color:var(--faint);font-weight:400;font-size:0.85rem">(~2,500 tokens)</span></div>
+                <div class="sub">L1 core profile + L2 rolling summary (always) · L3 pgvector top-K episodes · L4 SQL aggregates (numbers, never rows)</div>
+              </div>
+              <div class="node wide">
+                <div class="h"><span class="dot"></span> Lab / InBody PDF pipeline</div>
+                <div class="sub">TS text-extract → vision-LLM fallback → open key-value biomarkers vs optimal ranges</div>
+              </div>
+            </div>
+          </div>
+          <div class="arch-conn">reads / writes ↓&nbsp;&nbsp;&nbsp;&nbsp;↑ background writes</div>
+
+          <div class="node db">
+            <div class="h"><span class="dot"></span> Supabase Postgres + pgvector</div>
+            <div class="sub">Multi-tenant · RLS on · IPv4 session pooler · forward-only SQL migrations</div>
+          </div>
+          <div class="arch-conn">scheduled workers ↑ &nbsp; <span>Vercel Cron + Postgres-backed queue</span> · summary regen · insight engine · history import · embedding backfill</div>
+        </div>
+      </div>
+
+      <!-- multi-LLM gateway + routing -->
+      <div class="bp-block reveal">
+        <div class="bp-h">
+          <h3>A provider-agnostic multi-LLM gateway</h3>
+          <p>One internal interface with adapters behind it, so the provider is a swap, not a rewrite. Every use-case points at a tier through a config table — any use-case can move to any model with no code change. JSON outputs are schema-validated; every call is metered for cost.</p>
+        </div>
+        <div class="card card-pad">
+          <table class="route-table">
+            <thead>
+              <tr><th>Use-case</th><th>Tier</th><th>Model</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="k">food.estimate</td><td><span class="tier cheap">cheap</span></td><td class="m">gemini-2.5-flash</td></tr>
+              <tr><td class="k">food.nl_fallback</td><td><span class="tier cheap">cheap</span></td><td class="m">gemini-2.5-flash</td></tr>
+              <tr><td class="k">chat.advisor</td><td><span class="tier capable">capable</span></td><td class="m">claude-sonnet-4-6</td></tr>
+              <tr><td class="k">insight.engine</td><td><span class="tier capable">capable</span></td><td class="m">claude-sonnet-4-6</td></tr>
+              <tr><td class="k">lab.vision</td><td><span class="tier max">max</span></td><td class="m">claude-opus-4-8</td></tr>
+            </tbody>
+          </table>
+          <p class="route-note">Representative routing. Model IDs are stored without date suffixes; <code>tierFor(useCase)</code> falls back to <code>cheap</code> for any unknown key. The default posture: the cheapest model that's good enough, each use-case independently upgradable.</p>
+        </div>
+      </div>
+
+      <!-- 4-layer memory -->
+      <div class="bp-block reveal">
+        <div class="bp-h">
+          <h3>A four-layer memory architecture</h3>
+          <p>The moat isn't the model — it's what you feed it. A typical call assembles roughly 2,500 tokens of precisely-chosen context: cheap and deeply personalized at the same time.</p>
+        </div>
+        <div class="mem">
+          <div class="mem-layer l1">
+            <div class="lnum">1</div>
+            <div class="lbody"><b>Core profile</b><span>Age, primary goal, current stats, known conditions. Tiny and stable.</span></div>
+            <div class="ltok"><b>~500 tok</b><span>always sent</span></div>
+          </div>
+          <div class="mem-layer l2">
+            <div class="lnum">2</div>
+            <div class="lbody"><b>Health summary</b><span>A rolling, AI-written “doctor's-notes” summary, regenerated by a background worker on new data.</span></div>
+            <div class="ltok"><b>~1,200 tok</b><span>always sent</span></div>
+          </div>
+          <div class="mem-layer l3">
+            <div class="lnum">3</div>
+            <div class="lbody"><b>Episodic memory</b><span>Timestamped events embedded in pgvector; the query retrieves only the top-K relevant episodes.</span></div>
+            <div class="ltok"><b>variable</b><span>retrieved by similarity</span></div>
+          </div>
+          <div class="mem-layer l4">
+            <div class="lnum">4</div>
+            <div class="lbody"><b>Raw data</b><span>Full row-level data. SQL computes averages, trends and deltas — only those values enter the prompt.</span></div>
+            <div class="ltok"><b>0 tok</b><span>never sent as rows</span></div>
+          </div>
+        </div>
+        <p class="mem-total">≈ <b>2,500 tokens</b> assembled per call — the difference between an assistant that remembers you and one that re-meets you every time.</p>
+      </div>
+
+      <!-- grounding rule -->
+      <div class="bp-block reveal">
+        <div class="bp-h">
+          <h3>The grounding rule: SQL computes, the model narrates</h3>
+          <p>Accuracy is the product. The model never sees raw rows — the database computes the numbers deterministically, and the model's only task is to explain them in plain language. Calorie math is Atwater-authoritative; matched foods are never recomputed by an LLM.</p>
+        </div>
+        <div class="ground">
+          <div class="g-col bad">
+            <div class="gt">✕ Never</div>
+            <pre>prompt = f"""
+Here are 4,000 raw rows.
+Please average the HRV,
+find the trend, and
+compute the deltas...
+"""</pre>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="g-col good">
+            <div class="gt">✓ Always</div>
+<pre>-- SQL does the math
+avg_hrv     = 68 ms
+trend_14d   = +9%
+delta_vs_60 = +26%
+
+model: "narrate these
+numbers, clinically."</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- cost -->
+      <div class="bp-block reveal">
+        <div class="bp-h">
+          <h3>Cost is a first-class constraint</h3>
+          <p>Cost-consciousness is a product feature, enforced in the gateway itself. Cheap-by-default routing, a hard paid-tier gate the free tier never crosses, on-device transcription with no per-minute cost, and a shared community cache that makes marginal cost per user fall as the base grows.</p>
+        </div>
+        <div class="cost-grid">
+          <div class="cost-figures">
+            <div class="cost-row was">
+              <span class="cl">Naïve routing — every call on a frontier model</span>
+              <span class="cv">Costly</span>
+            </div>
+            <div class="cost-row now">
+              <span class="cl">Cheap-by-default + hard gate + shared cache</span>
+              <span class="cv">A fraction</span>
+            </div>
+          </div>
+          <ul class="cost-levers card card-pad">
+            <li><b>Seed databases</b> (USDA + Indian catalogue) mean most food lookups never call an LLM.</li>
+            <li><b>Shared community cache</b> absorbs the long tail — cost scales sub-linearly with users.</li>
+            <li><b>On-device transcription</b> is free and private; only text reaches the backend.</li>
+            <li><b>Hard paid-tier gate</b> in the gateway — the free tier never reaches any model.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- native stack -->
+      <div class="bp-block reveal">
+        <div class="bp-h">
+          <h3>Native to the metal</h3>
+          <p>iOS 26-only, on purpose — no fallback code paths, so it can use Apple's newest frameworks first-class.</p>
+        </div>
+        <div class="native-strip">
+          <div class="ns">
+            <b>SwiftUI + Liquid Glass <span class="k">.glassEffect()</span></b>
+            <p>A DesignSystem module of glass cards and buttons, built before any screen. iPhone-only, iOS 26 floor.</p>
+          </div>
+          <div class="ns">
+            <b>HealthKit <span class="k">HKStatisticsQuery</span></b>
+            <p>The spine of the app. Apple Health is the source of truth; energy is written then read back to avoid double-counting.</p>
+          </div>
+          <div class="ns">
+            <b>Apple Speech <span class="k">on-device</span></b>
+            <p>Continuous dictation with <code style="font-family:var(--mono);font-size:0.78rem;color:var(--cyan)">requiresOnDeviceRecognition</code>. Free, private, on-device.</p>
+          </div>
+          <div class="ns">
+            <b>Custom JWT <span class="k">jose</span></b>
+            <p>Backend-issued access + rotating refresh tokens in the Keychain — no hosted auth URLs exposed to the client.</p>
+          </div>
+          <div class="ns">
+            <b>Vercel + Hono <span class="k">nodejs20.x</span></b>
+            <p>Serverless TypeScript, region-pinned, validated with Zod. The client never touches Postgres directly.</p>
+          </div>
+          <div class="ns">
+            <b>Postgres + pgvector <span class="k">Supabase</span></b>
+            <p>Multi-tenant with RLS as defense-in-depth. ~7,888 USDA + 502 Indian foods seeded.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BUILT ================= -->
+  <section id="built" class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it was built</span>
+      <h2>Solo. Spec-first. <span class="grad-text">Agentically.</span></h2>
+      <p class="lead">One person, building a real multi-user product with a single "project brain" — code, specs and planning committed together — driven agentically with Claude Code, against numbered tickets with a plan and a summary each.</p>
+    </div>
+
+    <div class="metrics reveal">
+      <div class="metric"><b class="grad-text">310</b><span>commits shipped</span></div>
+      <div class="metric"><b class="grad-text">175</b><span>tracked SOR tickets</span></div>
+      <div class="metric"><b class="grad-text">~495</b><span>backend tests, green</span></div>
+      <div class="metric"><b class="grad-text">8,390+</b><span>foods seeded</span></div>
+    </div>
+
+    <div class="built-grid reveal">
+      <div class="card card-pad built-card">
+        <h3>Specs are the source of truth</h3>
+        <p>Behaviour is defined in specs before code exists; tests are written from the specs, never reverse-engineered from the implementation. Every feature ships against a numbered ticket — plan first, summary after.</p>
+      </div>
+      <div class="card card-pad built-card">
+        <h3>Models chosen by real A/Bs — never assumed</h3>
+        <p>Model selection is decided by running the real LLMs against a reference set and measuring. One estimation-tier A/B moved food macros from a pricey model to a cheap one on the evidence:</p>
+        <div class="ab">
+          10-food macro A/B · error vs reference<br>
+          <span class="win">gemini-2.5-flash → MAE 13 kcal/100g · ~1.9s</span><br>
+          <span class="lose">gemini-2.5-pro  → MAE 21 kcal/100g · ~11.5s</span><br>
+          result: <span class="win">≥ as accurate, ~4× cheaper, ~6× faster</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DESIGN ================= -->
+  <section id="design" class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Design thinking</span>
+      <h2>Four convictions, <span class="grad-text">visible in every screen</span></h2>
+    </div>
+    <div class="principles reveal">
+      <div class="principle">
+        <div class="pn">01 — aesthetic</div>
+        <h3>Liquid Glass, iOS-26-first</h3>
+        <p>The number-one requirement was Liquid Glass fidelity — which is why it's native SwiftUI with an iOS 26 floor and no fallback code. A flowing figure that doubles as an “S” for শরীর — body — on pure black.</p>
+        <div class="swatches">
+          <span class="sw"><i style="background:#8b5cf6"></i>#8B5CF6</span>
+          <span class="sw"><i style="background:#6366f1"></i>#6366F1</span>
+          <span class="sw"><i style="background:#0b0b0b"></i>#0B0B0B</span>
+          <span class="sw"><i style="background:#4ecb7d"></i>#4ECB7D</span>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="pn">02 — correctness</div>
+        <h3>Evidence-first, accuracy as the USP</h3>
+        <p>Deterministic-first everything. Atwater math is authoritative, matched foods are never recomputed by a model, and a failed LLM call becomes a clean error — never a fabricated zero-calorie card.</p>
+      </div>
+      <div class="principle">
+        <div class="pn">03 — discipline</div>
+        <h3>Cost-consciousness as a feature</h3>
+        <p>Cheap-by-default routing, a hard paid-tier gate, on-device transcription, and a cost meter on every model call. The architecture makes the cheap path the default path.</p>
+      </div>
+      <div class="principle">
+        <div class="pn">04 — posture</div>
+        <h3>A clinical, not-hype voice</h3>
+        <p>The system talks like a sports nutritionist who is also a data scientist. Reference ranges follow longevity and sports-medicine literature; the tone is centralized, versioned, and free of fluff.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TECH STRIP ================= -->
+  <section class="wrap" style="padding-top:0;">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Built with</span>
+    </div>
+    <div class="tech reveal">
+      <span class="t">Swift</span><span class="t">SwiftUI</span><span class="t">Liquid Glass</span><span class="t">HealthKit</span>
+      <span class="t">Apple Speech</span><span class="t">Sign in with Apple</span><span class="t">TypeScript</span><span class="t">Hono</span>
+      <span class="t">Vercel</span><span class="t">Vercel AI SDK</span><span class="t">Zod</span><span class="t">jose</span>
+      <span class="t">Supabase</span><span class="t">Postgres</span><span class="t">pgvector</span>
+      <span class="t">Gemini</span><span class="t">Claude</span><span class="t">Xcode Cloud</span><span class="t">TestFlight</span>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <a class="brand" href="#top">
+          <img src="assets/sorir-appicon.png" alt="Sorir icon">
+          <span>Sorir <span class="bn">শরীর</span></span>
+        </a>
+        <div class="status"><b>●</b> Pre-release · dogfooded on device via TestFlight</div>
+      </div>
+      <p class="legal">
+        <b>© 2026 Sourav Kundu. Sorir and sorir.ai are proprietary software and intellectual property — all rights reserved.</b>
+        This is not open-source. All designs, architecture, concepts, and ideas herein are copyrighted and the sole property of the author; reproduction, reuse, or redistribution is prohibited. Sorir is in pre-release development and intended for commercial release.
+      </p>
+      <div class="footer-meta">
+        <span>Pre-release</span><span class="dot"></span><span>sorir.ai</span><span class="dot"></span><span>শরীর — “body”</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

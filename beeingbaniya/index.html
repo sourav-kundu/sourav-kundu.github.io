@@ -1,0 +1,590 @@
+<!-- Proprietary. © Sourav Kundu. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>BeeingBaniya — AI-assisted personal finance from bank SMS · a project by Sourav Kundu</title>
+  <meta name="description" content="BeeingBaniya is a live SaaS product that turns bank transaction SMS into a clean, categorized ledger with budgeting and trends. A project showcase: the product thinking and the engineering blueprint behind it." />
+  <meta name="author" content="Sourav Kundu" />
+  <meta name="theme-color" content="#0b0912" />
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg" />
+  <link rel="apple-touch-icon" href="assets/apple-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+  <!-- ============================================= NAV -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="BeeingBaniya">
+        <img src="assets/mascot-transparent.png" alt="BeeingBaniya bee mascot" width="30" height="30" />
+        <span>Beeing<span class="b-e">Baniya</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#problem">The problem</a>
+        <a href="#features">What it does</a>
+        <a href="#blueprint">How it works</a>
+        <a href="#built">How it was built</a>
+        <a href="#thinking">Product thinking</a>
+      </nav>
+      <a class="nav-cta" href="https://www.beeingbaniya.com" target="_blank" rel="noopener">
+        Use it live
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================= HERO -->
+  <span id="top"></span>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="pill">
+          <span class="dot-live"></span>
+          <b>Live in production</b> · beeingbaniya.com
+        </span>
+        <h1>Every bank SMS,<br /><span class="grad">turned into a clean ledger.</span></h1>
+        <p class="lede">
+          BeeingBaniya is a live personal-finance product for Indian bank customers. Your phone
+          forwards each transaction SMS, an LLM turns it into a categorized, searchable transaction,
+          and budgeting + trends do the rest — with zero manual entry.
+        </p>
+        <p class="tagline">Frugal today. Fortune tomorrow.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://www.beeingbaniya.com" target="_blank" rel="noopener">
+            Use it live
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#blueprint">
+            See the engineering blueprint
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual" style="position:relative;">
+        <div class="hero-card">
+          <img class="logo" src="assets/main-logo-transparent.png" alt="BeeingBaniya — bee mascot holding a SAVE sign and a money bag, above the Beeing Baniya wordmark" />
+        </div>
+        <div class="hero-float float-a">
+          <span class="ic" style="background:rgba(34,197,94,.16);color:#4ade80;">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>
+          </span>
+          <div>Auto-categorized<small>no manual typing</small></div>
+        </div>
+        <div class="hero-float float-b">
+          <span class="ic" style="background:rgba(157,107,255,.18);color:var(--violet-soft);">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg>
+          </span>
+          <div>iOS app in TestFlight<small>SwiftUI companion</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= TECH STRIP -->
+  <div class="stack-strip">
+    <div class="wrap">
+      <span class="label">Built with</span>
+      <span class="chip">Next.js 16 · App Router</span>
+      <span class="chip">React 19</span>
+      <span class="chip">Vercel</span>
+      <span class="chip">Supabase (Postgres)</span>
+      <span class="chip">Auth.js v5</span>
+      <span class="chip">Claude (Anthropic SDK)</span>
+      <span class="chip">Google GenAI</span>
+      <span class="chip">Tailwind + shadcn/ui</span>
+    </div>
+  </div>
+
+  <!-- ============================================= PROBLEM -->
+  <section id="problem">
+    <div class="wrap problem-grid">
+      <div>
+        <p class="eyebrow">The problem</p>
+        <h2 class="section-title">A real-time feed of your spending — trapped in your inbox.</h2>
+        <p class="section-lead" style="margin-bottom:0;">
+          Indian banks still text an alert for nearly every debit and credit. That is a live stream
+          of exactly where your money goes — but it sits as unstructured text in the Messages app, and
+          logging expenses by hand is tedious enough that most people give up.
+        </p>
+        <ul class="pain-list">
+          <li><span class="pain-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 8v5M12 16h.01"/></svg></span><span><b>Every bank formats SMS differently.</b> ICICI, HDFC, SBI, Axis and wallets each phrase debits, mandates and OTPs their own way — brittle to parse.</span></li>
+          <li><span class="pain-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 8v5M12 16h.01"/></svg></span><span><b>Manual expense apps don't get used.</b> The friction of typing each purchase means the ledger goes stale within a week.</span></li>
+          <li><span class="pain-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 8v5M12 16h.01"/></svg></span><span><b>No accountability line.</b> Without an automatic ledger, it's hard to hold discretionary spend against what you actually want to save.</span></li>
+        </ul>
+      </div>
+      <div class="sms-demo" aria-label="How a bank SMS becomes a structured transaction">
+        <div class="step-label">Incoming bank SMS</div>
+        <div class="sms-bubble">Rs.480.00 debited from a/c XX4321 on 06-Jul at SWIGGY BENGALURU. Avl bal Rs.—. Not you? Call 1800-XXX.</div>
+        <div class="sms-meta">Sample message · illustrative only</div>
+        <div class="flow-arrow">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        </div>
+        <div class="tx-parsed">
+          <div class="tx-row"><span class="k">Amount</span><span class="v">₹480.00</span></div>
+          <div class="tx-row"><span class="k">Merchant</span><span class="v">Swiggy</span></div>
+          <div class="tx-row"><span class="k">Date</span><span class="v">06 Jul</span></div>
+          <div class="tx-row"><span class="k">Type</span><span class="v"><span class="tag tag-ai">Spend</span></span></div>
+          <div class="tx-row"><span class="k">Category</span><span class="v"><span class="tag tag-cat">Food &amp; Dining</span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= FEATURES -->
+  <section id="features">
+    <div class="wrap">
+      <p class="eyebrow">What it does</p>
+      <h2 class="section-title">A finance app that keeps itself up to date.</h2>
+      <p class="section-lead">Ingestion is automatic; everything downstream — categorization, budgets, trends and a weekly recap — builds on that clean, structured stream.</p>
+
+      <div class="grid cols-3">
+        <div class="card">
+          <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+          <div class="kicker">Ingestion</div>
+          <h3>Automatic SMS capture</h3>
+          <p>An iPhone Shortcuts automation (or a macOS Messages daemon) forwards each incoming bank SMS to a secure webhook. No typing, no imports.</p>
+        </div>
+        <div class="card">
+          <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M5.6 5.6l2.1 2.1M3 12h3M18 12h3M12 18v3M16.3 16.3l2.1 2.1"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <div class="kicker">Intelligence</div>
+          <h3>AI extraction &amp; classification</h3>
+          <p>An LLM reads each message, decides its type (spend, credit, OTP, EMI, investment, invalid…) and pulls out amount, merchant, date and category.</p>
+        </div>
+        <div class="card">
+          <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="11" width="8" height="10" rx="2"/><rect x="3" y="14" width="8" height="7" rx="2"/></svg></div>
+          <div class="kicker">Dashboard</div>
+          <h3>Draggable widgets</h3>
+          <p>Month-to-date spend versus the prior period, spend-by-category charts with clickable slices, and a merged manual + SMS transaction table.</p>
+        </div>
+        <div class="card">
+          <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
+          <div class="kicker">Trends</div>
+          <h3>Trends &amp; regression</h3>
+          <p>Monthly-spend line chart with an OLS trendline, per-category multi-line comparison, and credit-card-payment / investment trends over a configurable window.</p>
+        </div>
+        <div class="card">
+          <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <div class="kicker">Budgeting</div>
+          <h3>Running-balance budgets</h3>
+          <p>A monthly overall budget with per-category allocations and a cumulative "spend-left" line — overspend carries forward as negative balance, not a bar that just fills up.</p>
+        </div>
+        <div class="card">
+          <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="m8 12 3 3 5-6"/></svg></div>
+          <div class="kicker">Self-improving</div>
+          <h3>Learns from corrections</h3>
+          <p>Recategorize a transaction once and the app writes a keyword rule keyed on that merchant — the same SMS shape skips the LLM next time. Accuracy compounds; cost drops.</p>
+        </div>
+        <div class="card">
+          <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.2L4 17.5z"/><path d="M8 9h8M8 12h5"/></svg></div>
+          <div class="kicker">Recap</div>
+          <h3>Weekly AI summary</h3>
+          <p>A short LLM-written recap of the week — biggest areas, spikes and outliers — delivered on the dashboard and by email.</p>
+        </div>
+        <div class="card">
+          <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l-1 4h-4z"/><path d="M8 7h8l1.5 8a3 3 0 0 1-3 3.5H9.5A3 3 0 0 1 6.5 15z"/></svg></div>
+          <div class="kicker">Try before signup</div>
+          <h3>Public sandbox</h3>
+          <p>One click opens a demo account seeded with a year of synthetic Indian finance data — explore the full product with no account and nothing real exposed.</p>
+        </div>
+        <div class="card">
+          <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
+          <div class="kicker">Native</div>
+          <h3>iOS companion (TestFlight)</h3>
+          <p>A SwiftUI / Liquid Glass app whose SMS-filter extension can auto-capture bank texts on-device, with explicit consent — currently in TestFlight.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= BLUEPRINT (centerpiece) -->
+  <section id="blueprint">
+    <div class="wrap">
+      <p class="eyebrow">How it works — engineering blueprint</p>
+      <h2 class="section-title">From a raw text message to a categorized transaction, in one request.</h2>
+      <p class="section-lead">Both ingestion sources hit a single webhook. The synchronous path stays fast and idempotent; the expensive AI work runs after the response, in the same serverless invocation — no external queue.</p>
+
+      <!-- Architecture diagram -->
+      <div class="blueprint-diagram" role="img" aria-label="Architecture: an iPhone Shortcut or macOS daemon posts SMS to a Next.js webhook on Vercel. The synchronous path authenticates the webhook token, rate-limits, sanitizes, deduplicates and stores the raw message in Supabase Postgres, then returns 200. An after() hook then runs rule matching, LLM classification and extraction via the Anthropic and Google GenAI SDKs, writes the structured transaction back to Postgres, and broadcasts a realtime update to the dashboard.">
+        <svg viewBox="0 0 980 430" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+          <defs>
+            <linearGradient id="gv" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#6d3ad4"/><stop offset="1" stop-color="#9d6bff"/>
+            </linearGradient>
+            <marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#9d6bff"/>
+            </marker>
+            <style>
+              .box{fill:rgba(255,255,255,.035);stroke:rgba(255,255,255,.14);stroke-width:1;rx:12;}
+              .lane{fill:rgba(157,107,255,.05);stroke:rgba(157,107,255,.18);stroke-dasharray:5 5;}
+              .t{fill:#edecf5;font-size:13px;font-weight:600;}
+              .s{fill:#a5a2ba;font-size:11px;}
+              .tag{fill:#b79bff;font-size:10.5px;font-weight:700;letter-spacing:.08em;}
+              .flow{stroke:#9d6bff;stroke-width:1.6;fill:none;}
+            </style>
+          </defs>
+
+          <!-- Sources -->
+          <text x="24" y="26" class="tag">SOURCES</text>
+          <rect x="24" y="38" width="150" height="52" rx="12" class="box"/>
+          <text x="40" y="62" class="t">iPhone Shortcut</text>
+          <text x="40" y="80" class="s">triggers on each SMS</text>
+          <rect x="24" y="100" width="150" height="52" rx="12" class="box"/>
+          <text x="40" y="124" class="t">macOS daemon</text>
+          <text x="40" y="142" class="s">polls Messages db</text>
+
+          <!-- Webhook -->
+          <rect x="228" y="60" width="150" height="80" rx="12" class="box" stroke="url(#gv)" stroke-width="1.6"/>
+          <text x="244" y="86" class="t">POST /webhooks/sms</text>
+          <text x="244" y="105" class="s">Bearer webhook_token</text>
+          <text x="244" y="122" class="s">Next.js on Vercel</text>
+
+          <!-- Sync lane -->
+          <rect x="420" y="24" width="336" height="132" rx="12" class="lane"/>
+          <text x="436" y="44" class="tag">SYNCHRONOUS · returns 200 fast</text>
+          <rect x="436" y="56" width="150" height="40" rx="9" class="box"/>
+          <text x="451" y="80" class="t" font-size="12">Auth · rate-limit</text>
+          <rect x="596" y="56" width="146" height="40" rx="9" class="box"/>
+          <text x="611" y="80" class="t" font-size="12">Sanitize · dedupe</text>
+          <rect x="516" y="104" width="150" height="40" rx="9" class="box"/>
+          <text x="531" y="128" class="t" font-size="12">Insert raw_messages</text>
+
+          <!-- DB -->
+          <rect x="798" y="60" width="156" height="80" rx="12" class="box"/>
+          <text x="814" y="86" class="t">Supabase</text>
+          <text x="814" y="104" class="s">Postgres</text>
+          <text x="814" y="122" class="s">service-role client</text>
+
+          <!-- Async lane -->
+          <rect x="228" y="212" width="528" height="150" rx="12" class="lane"/>
+          <text x="244" y="234" class="tag">AFTER RESPONSE · same invocation — after()</text>
+          <rect x="244" y="248" width="150" height="60" rx="10" class="box"/>
+          <text x="260" y="272" class="t" font-size="12">Rule matcher</text>
+          <text x="260" y="290" class="s">keyword rules first</text>
+          <rect x="418" y="248" width="150" height="60" rx="10" class="box" stroke="url(#gv)" stroke-width="1.6"/>
+          <text x="434" y="272" class="t" font-size="12">LLM classify</text>
+          <text x="434" y="290" class="s">Claude Haiku</text>
+          <rect x="592" y="248" width="150" height="60" rx="10" class="box"/>
+          <text x="608" y="272" class="t" font-size="12">Write transaction</text>
+          <text x="608" y="290" class="s">+ refund matching</text>
+          <rect x="244" y="320" width="498" height="30" rx="8" class="box"/>
+          <text x="260" y="340" class="s">category_source tagged rule / ai · realtime broadcast to dashboard</text>
+
+          <!-- Dashboard -->
+          <rect x="798" y="255" width="156" height="70" rx="12" class="box"/>
+          <text x="814" y="280" class="t">Dashboard</text>
+          <text x="814" y="298" class="s">SWR + Supabase</text>
+          <text x="814" y="314" class="s">realtime channel</text>
+
+          <!-- flows -->
+          <path class="flow" d="M174 64 H228" marker-end="url(#arw)"/>
+          <path class="flow" d="M174 126 H228" marker-end="url(#arw)"/>
+          <path class="flow" d="M378 90 H420" marker-end="url(#arw)"/>
+          <path class="flow" d="M666 124 H798 V130" marker-end="url(#arw)"/>
+          <path class="flow" d="M303 140 V212" marker-end="url(#arw)"/>
+          <path class="flow" d="M394 278 H418" marker-end="url(#arw)"/>
+          <path class="flow" d="M568 278 H592" marker-end="url(#arw)"/>
+          <path class="flow" d="M742 288 H798 V290" marker-end="url(#arw)"/>
+          <path class="flow" d="M742 300 H770 V150" marker-end="url(#arw)"/>
+        </svg>
+      </div>
+
+      <!-- pipeline detail -->
+      <div class="bp-grid">
+        <div class="bp-card">
+          <h3><span class="num">1</span> The SMS → transaction pipeline</h3>
+          <ol class="steps">
+            <li><b>Authenticate</b> the request's bearer against the user's <code>webhook_token</code>.</li>
+            <li><b>Rate-limit</b> (100 SMS per user per 6-hour window) and <b>sanitize</b> the text.</li>
+            <li><b>Deduplicate</b> — skip if this exact message already exists for the user.</li>
+            <li><b>Store</b> a <code>raw_messages</code> row with <code>sms_type = null</code> (the "processing" state) and return <b>200</b>.</li>
+            <li><b>After the response</b>, run the user's keyword <b>rules</b> first — a match can short-circuit the LLM entirely.</li>
+            <li><b>Classify + extract</b> with the LLM, decide the final type, then insert a <code>sms_transactions</code> row for debits.</li>
+            <li><b>Credits</b> run refund matching against a same-amount debit in the last 30 days.</li>
+          </ol>
+        </div>
+
+        <div class="bp-card">
+          <h3><span class="num">2</span> How the AI is used</h3>
+          <p style="color:var(--muted);font-size:14.5px;margin:0 0 14px;">A provider-pluggable LLM layer with a per-feature config that's overridable by environment variable — the model can change with no code edit. It runs on Anthropic's Claude today, and can switch to Google GenAI, OpenAI or DeepSeek by config.</p>
+          <table class="ai-table">
+            <thead><tr><th>Task</th><th>Model</th><th>Why</th></tr></thead>
+            <tbody>
+              <tr><td><b>Classify every SMS</b></td><td><span class="model-badge">Claude Haiku</span></td><td>High-volume hot path — cost-optimized, fast.</td></tr>
+              <tr><td><b>Fallback &amp; messy-merchant extract</b></td><td><span class="model-badge">Claude Sonnet</span></td><td>Rare, quality-critical — "prefer null over a guess."</td></tr>
+              <tr><td><b>Weekly summary</b></td><td><span class="model-badge">Claude Sonnet</span></td><td>Longer reasoning for a readable recap.</td></tr>
+            </tbody>
+          </table>
+          <p style="color:var(--dim);font-size:12.5px;margin:14px 0 0;">Anthropic calls go through <span class="inline-code">@anthropic-ai/sdk</span>; the Gemini provider uses <span class="inline-code">@google/genai</span>.</p>
+        </div>
+
+        <div class="bp-card">
+          <h3><span class="num">3</span> The data model</h3>
+          <div class="grid cols-2" style="gap:12px;">
+            <div class="entity">
+              <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/></svg>raw_messages</h4>
+              <ul>
+                <li>message<span class="type">text</span></li>
+                <li>sms_type<span class="type">enum·null</span></li>
+                <li>extracted_amount<span class="type">numeric</span></li>
+                <li>received_at<span class="type">timestamptz</span></li>
+              </ul>
+            </div>
+            <div class="entity">
+              <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/></svg>sms_transactions</h4>
+              <ul>
+                <li>amount<span class="type">numeric</span></li>
+                <li>merchant<span class="type">text</span></li>
+                <li>type<span class="type">debit·refunded</span></li>
+                <li>category_source<span class="type">ai·rule</span></li>
+              </ul>
+            </div>
+            <div class="entity">
+              <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/></svg>mapping_rules</h4>
+              <ul>
+                <li>keywords<span class="type">csv</span></li>
+                <li>category_id<span class="type">fk</span></li>
+                <li>priority<span class="type">int</span></li>
+                <li>rule_source<span class="type">auto·manual</span></li>
+              </ul>
+            </div>
+            <div class="entity">
+              <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/></svg>user_categories</h4>
+              <ul>
+                <li>name<span class="type">text</span></li>
+                <li>color<span class="type">hex</span></li>
+                <li>budget_percent<span class="type">numeric</span></li>
+                <li>description<span class="type">→ LLM</span></li>
+              </ul>
+            </div>
+          </div>
+          <p style="color:var(--dim);font-size:12.5px;margin:14px 0 0;">Postgres on Supabase, accessed via a service-role client with <span class="inline-code">user_id</span> scoping enforced in code. Category descriptions and user-defined transaction types feed back into the classifier prompt.</p>
+        </div>
+
+        <div class="bp-card">
+          <h3><span class="num">4</span> Auth &amp; access</h3>
+          <ul class="steps" style="counter-reset:none;">
+            <li style="padding-left:0;"><b>Auth.js v5 (NextAuth)</b> with JWT sessions — no session table. Three providers: Google OAuth, email + password, and email one-time code (delivered via Resend).</li>
+            <li style="padding-left:0;"><b>Edge middleware</b> guards the app routes, bounces logged-in users off the auth page, and excludes webhooks, cron and callbacks so machine traffic works without a session.</li>
+            <li style="padding-left:0;"><b>Webhook auth is separate</b> — a per-user bearer token, matched against the profile, not the login session. The same token names the user's realtime channel.</li>
+          </ul>
+          <div class="callout" style="margin-top:18px;">
+            <b>Deployment &amp; ops:</b> Vercel (push to <span class="inline-code">main</span> → production; every branch gets a preview). Two Vercel cron jobs fan out the weekly AI summary, weekly email, daily reminder and a nightly sandbox reset. Transactional email runs on Resend.
+          </div>
+        </div>
+      </div>
+
+      <!-- Ingestion real screenshot + shortcut mock -->
+      <div class="grid cols-2" style="margin-top:40px;align-items:center;">
+        <div>
+          <p class="eyebrow" style="margin-bottom:12px;">Ingestion, from the phone</p>
+          <h3 style="font-size:24px;margin-bottom:14px;">One Shortcut, four triggers.</h3>
+          <p style="color:var(--muted);font-size:15.5px;margin:0 0 18px;">iOS runs a personal automation whenever a message contains a money keyword — <b>Amt</b>, <b>debited</b>, <b>INR</b> or <b>Rs.</b> — and hands it to a single "Process Transaction SMS" shortcut that POSTs the text to the webhook.</p>
+          <div class="mock" style="max-width:420px;">
+            <div class="mock-bar"><div class="dots"><i></i><i></i><i></i></div><span class="u">Shortcut · Forward SMS to BeeingBaniya</span></div>
+            <div class="mock-body" style="font-family:ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.9;color:#cfcde0;">
+              <div><span style="color:var(--gold);">Match</span> <span style="color:var(--violet-soft);">(?i)(Rs|INR|amt).*\d+</span> in Shortcut Input</div>
+              <div><span style="color:var(--gold);">If</span> Text has any value</div>
+              <div><span style="color:var(--green);">POST</span> https://www.beeingbaniya.com/api/webhooks/sms</div>
+              <div style="color:var(--dim);">Header · Authorization: Bearer ••••••••••••</div>
+              <div style="color:var(--dim);">Body (JSON) · { text: Shortcut Input }</div>
+            </div>
+          </div>
+        </div>
+        <div class="phone">
+          <img src="assets/automation-list.png" alt="iOS Shortcuts automation list showing four personal automations, each triggered when a message contains a money keyword — Amt, debited, INR, or Rs. — running Process Transaction SMS" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= SAMPLE PRODUCT UI -->
+  <section id="product" style="padding-top:0;">
+    <div class="wrap">
+      <div class="grid cols-2" style="align-items:center;gap:40px;">
+        <div class="mock" aria-label="Illustrative dashboard with sample data">
+          <div class="mock-bar"><div class="dots"><i></i><i></i><i></i></div><span class="u">beeingbaniya.com/dashboard</span><span class="sample-badge">Sample data</span></div>
+          <div class="mock-body">
+            <div class="stat-row">
+              <div class="stat-box"><div class="lbl">This month</div><div class="val">₹42,180</div></div>
+              <div class="stat-box"><div class="lbl">vs last month</div><div class="val up">+8%</div></div>
+              <div class="stat-box"><div class="lbl">Top category</div><div class="val" style="font-size:15px;">Food</div></div>
+            </div>
+            <!-- mini category bars -->
+            <svg viewBox="0 0 340 96" width="100%" height="96" style="margin-bottom:16px;" role="img" aria-label="Sample spend-by-category bars">
+              <g font-family="Inter" font-size="10" fill="#a5a2ba">
+                <rect x="0" y="8" width="150" height="12" rx="6" fill="#6d3ad4"/><text x="158" y="18">Food &amp; Dining · ₹12.4k</text>
+                <rect x="0" y="30" width="110" height="12" rx="6" fill="#9d6bff"/><text x="118" y="40">Groceries · ₹9.1k</text>
+                <rect x="0" y="52" width="78" height="12" rx="6" fill="#e0407e"/><text x="86" y="62">Transport · ₹6.3k</text>
+                <rect x="0" y="74" width="54" height="12" rx="6" fill="#f5b400"/><text x="62" y="84">Utilities · ₹4.4k</text>
+              </g>
+            </svg>
+            <div class="txlist">
+              <div class="txitem"><span class="av" style="background:rgba(109,58,212,.2);color:var(--violet-soft);">S</span><span><div class="nm">Swiggy</div><div class="sub">Food &amp; Dining · AI</div></span><span class="amt up" style="color:#f0855a;">−₹480</span></div>
+              <div class="txitem"><span class="av" style="background:rgba(34,197,94,.16);color:#4ade80;">B</span><span><div class="nm">BigBasket</div><div class="sub">Groceries · rule</div></span><span class="amt" style="color:#f0855a;">−₹1,240</span></div>
+              <div class="txitem"><span class="av" style="background:rgba(245,180,0,.16);color:var(--gold);">U</span><span><div class="nm">Uber</div><div class="sub">Transport · AI</div></span><span class="amt" style="color:#f0855a;">−₹214</span></div>
+              <div class="txitem"><span class="av" style="background:rgba(224,64,126,.16);color:#f472b6;">J</span><span><div class="nm">Jio Recharge</div><div class="sub">Utilities · rule</div></span><span class="amt" style="color:#f0855a;">−₹299</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow">The product, live</p>
+          <h2 class="section-title" style="font-size:32px;">Structured spend you can actually read.</h2>
+          <p style="color:var(--muted);font-size:16px;margin:0 0 20px;">Every automated decision is auditable — each transaction is tagged with whether a <b>rule</b> or the <b>AI</b> categorized it, so you always know why something landed where it did. The dashboard, trends and budgets all read from the same clean stream.</p>
+          <div class="callout">
+            <b>Design bias:</b> missing a real spend is worse than an occasional false one. The classifier is tuned to never silently drop a genuine transaction — false positives are cheap to fix; false negatives quietly corrode trust.
+          </div>
+          <p style="margin-top:22px;">
+            <a class="btn btn-primary" href="https://www.beeingbaniya.com" target="_blank" rel="noopener">
+              Explore the live app
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= HOW IT WAS BUILT -->
+  <section id="built">
+    <div class="wrap">
+      <p class="eyebrow">How it was built</p>
+      <h2 class="section-title">Shipped solo — designed, coded and operated with an agentic workflow.</h2>
+      <p class="section-lead">One builder, a tight loop, and production feedback. Every change starts as a tracked issue, gets designed, implemented on a branch by coding agents, QA'd on a Vercel preview, then merged to auto-deploy.</p>
+
+      <div class="flow-pipe">
+        <div class="flow-node"><div class="fn-t">Design</div><div class="fn-s">Claude Design</div></div>
+        <div class="flow-sep"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="flow-node"><div class="fn-t">Build</div><div class="fn-s">Claude Code</div></div>
+        <div class="flow-sep"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="flow-node"><div class="fn-t">Track</div><div class="fn-s">Linear issues</div></div>
+        <div class="flow-sep"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="flow-node"><div class="fn-t">Review</div><div class="fn-s">GitHub PR</div></div>
+        <div class="flow-sep"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="flow-node"><div class="fn-t">Ship</div><div class="fn-s">Vercel deploy</div></div>
+      </div>
+
+      <div class="grid cols-3" style="margin-top:34px;">
+        <div class="card">
+          <div class="kicker">Parallelism</div>
+          <h3>Split across sub-agents</h3>
+          <p>Multi-area features are decomposed and dispatched to parallel coding agents against a shared spec, so independent slices land without stepping on each other.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Contract-first</div>
+          <h3>One sacrosanct API contract</h3>
+          <p>Web and iOS integrate only through a versioned API contract — two independent agents can build both clients without coordinating, as long as the contract holds.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Owned tradeoffs</div>
+          <h3>Pragmatic, on purpose</h3>
+          <p>No background queue (<span class="inline-code">after()</span> on the same invocation), type errors guarded by a test suite rather than blocking builds — decisions made in writing, not by accident.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= PRODUCT THINKING -->
+  <section id="thinking">
+    <div class="wrap">
+      <p class="eyebrow">Product &amp; customer thinking</p>
+      <h2 class="section-title">Opinions the product is willing to hold.</h2>
+      <p class="section-lead">The interesting decisions aren't in the framework choices — they're in what the product chooses to optimize for its user.</p>
+
+      <div class="grid cols-2" style="gap:22px;">
+        <div class="principle">
+          <span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <div><h3>Never miss a real spend</h3><p>Trust dies quietly when a genuine transaction vanishes. The system leans toward capturing, and makes over-captures cheap to fix and easy to de-duplicate.</p></div>
+        </div>
+        <div class="principle">
+          <span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M20 4v5h-5"/></svg></span>
+          <div><h3>It gets better with use</h3><p>Every manual correction becomes a rule. Over time more traffic bypasses the LLM — accuracy compounds while per-message cost falls.</p></div>
+        </div>
+        <div class="principle">
+          <span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+          <div><h3>Provenance you can audit</h3><p>Every categorization records whether a rule, the AI, or you set it. "Why did this land here?" always has an answer.</p></div>
+        </div>
+        <div class="principle">
+          <span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14v3M12 9v8M17 5v12"/></svg></span>
+          <div><h3>Cost tiered by volume</h3><p>A fast, cheap model on the every-message path; a stronger model reserved for the rare, quality-critical work. Economics decided per call site.</p></div>
+        </div>
+        <div class="principle">
+          <span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l-1 4h-4z"/><path d="M8 7h8l1.5 8a3 3 0 0 1-3 3.5H9.5A3 3 0 0 1 6.5 15z"/></svg></span>
+          <div><h3>Remove signup friction</h3><p>A one-click sandbox with a year of synthetic data lets anyone feel the full product before committing an account.</p></div>
+        </div>
+        <div class="principle">
+          <span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <div><h3>Budgets as accountability</h3><p>Not a bar that fills up. A cumulative running balance where overspend carries forward — the number tells you the truth about the month.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= CTA BAND -->
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>It's live. Go try it.</h2>
+        <p>Open the sandbox with one click — a full year of synthetic data, no signup — or sign in and connect your own SMS feed.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://www.beeingbaniya.com" target="_blank" rel="noopener">
+            Use it live at beeingbaniya.com
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <img src="assets/mascot-transparent.png" alt="BeeingBaniya bee mascot" width="28" height="28" />
+          <span>Beeing<span style="color:var(--violet-bright);">Baniya</span></span>
+        </div>
+        <div class="foot-links">
+          <a href="#problem">The problem</a>
+          <a href="#features">What it does</a>
+          <a href="#blueprint">How it works</a>
+          <a href="#built">How it was built</a>
+          <a href="https://www.beeingbaniya.com" target="_blank" rel="noopener">Live app ↗</a>
+        </div>
+      </div>
+      <p class="notice">
+        <b>© 2026 Sourav Kundu.</b> BeeingBaniya is proprietary software and intellectual property — all rights reserved.
+        This is not open-source. All designs, architecture, concepts, and ideas herein are copyrighted and the sole
+        property of the author; reproduction, reuse, or redistribution is prohibited. Product screenshots and figures
+        on this page use demo, seed, or sample data only and do not represent any real person's financial information.
+        Logo and mascot are the BeeingBaniya brand marks.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle (no build step, tiny + progressive).
+    (function () {
+      var t = document.getElementById('navToggle');
+      var l = document.getElementById('navLinks');
+      if (!t || !l) return;
+      t.addEventListener('click', function () {
+        var open = l.classList.toggle('open');
+        t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      l.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') { l.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); }
+      });
+    })();
+  </script>
+</body>
+</html>
