@@ -514,3 +514,17 @@ a:hover { color: var(--accent); }
 }
 .contact-links a { font-weight: 600; }
 .footer__note { margin: 0; font-size: 0.9rem; color: var(--ink-faint); }
+
+/* Card CTA links (What I build) */
+.card__links {
+  margin: 1rem 0 0;
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.card__links a {
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.card__links a:hover { text-decoration: underline; }

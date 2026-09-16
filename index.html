@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sourav Kundu — Technical Product Leader</title>
-  <meta name="description" content="Sourav Kundu — Group Product Manager at BrowserStack. A deeply technical product leader who builds at the intersection of rigorous engineering and real business impact. Ex-nuclear-systems engineer, IIM Bangalore MBA, endurance cyclist, builder." />
+  <meta name="description" content="Sourav Kundu — technical product leader (Group Product Manager, BrowserStack) and AI-native builder. Creator of Sorir, an AI health OS, and BeeingBaniya, an AI personal-finance app. Ex-nuclear-systems engineer, IIM Bangalore MBA." />
   <meta name="author" content="Sourav Kundu" />
   <meta name="theme-color" content="#2f5d62" />
 
@@ -24,6 +24,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- Structured data: who Sourav Kundu is (entity SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sourav Kundu",
+    "url": "https://sourav-kundu.com/",
+    "image": "https://sourav-kundu.com/assets/profile.jpg",
+    "jobTitle": "Group Product Manager",
+    "worksFor": { "@type": "Organization", "name": "BrowserStack" },
+    "description": "Technical product leader and AI-native builder. Group Product Manager at BrowserStack; creator of Sorir (AI-native health OS) and BeeingBaniya (AI-assisted personal finance).",
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Indian Institute of Management Bangalore" },
+      { "@type": "CollegeOrUniversity", "name": "Homi Bhabha National Institute" }
+    ],
+    "knowsAbout": ["Product Management", "Platform Product Management", "Product Analytics", "Generative AI", "LLM Agents", "Developer Tools"],
+    "sameAs": [
+      "https://www.linkedin.com/in/souravkundu-product-builder/",
+      "https://github.com/sourav-kundu"
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -37,6 +60,7 @@
       </button>
       <nav class="nav__menu" id="nav-menu" aria-label="Primary">
         <a href="#about">About</a>
+        <a href="#products">What I build</a>
         <a href="#work">Work</a>
         <a href="#thinking">How I think</a>
         <a href="#beyond">Beyond work</a>
@@ -59,13 +83,14 @@
           a full-stack builder shipping with AI.
         </p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="#work">See my work</a>
+          <a class="btn btn--primary" href="#products">See what I build</a>
           <a class="btn btn--ghost" href="https://www.linkedin.com/in/souravkundu-product-builder/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
         </div>
         <ul class="hero__meta">
           <li>10+ years building software products</li>
           <li>APM &rarr; GPM in 6 years</li>
           <li>Ex nuclear-systems engineer</li>
+          <li>2 AI-native products, built solo</li>
         </ul>
       </div>
 
@@ -142,6 +167,67 @@
         <div class="stat">
           <span class="stat__num">4&times;</span>
           <span class="stat__label">Promotions in under 5 years &mdash; a company first</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================== What I build ===================== -->
+    <section class="section" id="products" aria-labelledby="products-heading">
+      <div class="container">
+        <p class="section__eyebrow">What I build</p>
+        <h2 class="section__heading" id="products-heading">Two real products, built &amp; operated solo.</h2>
+        <p class="section__intro">
+          Side projects are how I keep myself honest about the craft. These aren&rsquo;t
+          demos &mdash; they are multi-user products I designed, specced, built, and now
+          operate end to end, with AI coding agents as the build team and me as the
+          product, architecture, and quality bar. Each one has a full public write-up of
+          the product thinking and the engineering underneath.
+        </p>
+
+        <div class="cards">
+          <article class="card card--accent">
+            <h3 class="card__title">Sorir &mdash; an AI health OS that actually remembers you</h3>
+            <p class="card__kicker">AI-native health operating system &middot; pre-release, dogfooded on TestFlight</p>
+            <p class="card__body">
+              A serious health routine today is five apps that neither remember you nor
+              talk to each other &mdash; a chatbot, a food log, a wearable, body scans,
+              lab PDFs. Sorir replaces the stack with one system: a native iOS app on a
+              provider-agnostic multi-LLM gateway and a four-layer memory architecture,
+              with a grounding rule I hold sacred &mdash; <em>SQL computes, the model
+              narrates</em>. Evidence-first, cost-conscious, and clinical in tone by design.
+            </p>
+            <ul class="card__metrics">
+              <li>310 commits &middot; 175 tracked tickets &middot; ~495 green backend tests &mdash; solo, spec-first</li>
+              <li>~2,500 tokens of precisely assembled context per AI call</li>
+              <li>Models picked by real A/Bs &mdash; equal accuracy, ~4&times; cheaper, ~6&times; faster</li>
+            </ul>
+            <p class="card__links">
+              <a href="/sorir/">Read the full build &rarr;</a>
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">BeeingBaniya &mdash; personal finance that runs itself</h3>
+            <p class="card__kicker">AI-assisted personal finance &middot; live in production</p>
+            <p class="card__body">
+              Indian banks text you a live feed of exactly where your money goes &mdash;
+              trapped as unstructured SMS. BeeingBaniya turns every bank SMS into a clean,
+              categorized, searchable ledger with zero manual entry, then layers budgets,
+              trends, and a weekly AI recap on top. Every correction you make becomes a
+              rule, so accuracy compounds while the AI cost per message falls &mdash; and
+              the classifier is tuned to never silently drop a real transaction.
+            </p>
+            <ul class="card__metrics">
+              <li>Live in production, with a one-click sandbox &mdash; a year of demo data, no signup</li>
+              <li>Every categorization is auditable: rule, AI, or you</li>
+              <li>Cut my own spending 50% in 3 months &mdash; I&rsquo;m user zero</li>
+            </ul>
+            <p class="card__links">
+              <a href="https://www.beeingbaniya.com/" target="_blank" rel="noopener noreferrer">Use it live &rarr;</a>
+              <a href="/beeingbaniya/">Read the build &rarr;</a>
+            </p>
+          </article>
         </div>
       </div>
     </section>
@@ -375,8 +461,11 @@
           <p>
             I&rsquo;m starting to write &mdash; on technical product management, building
             with AI, platform thinking, and the quantified-self experiments I run on
-            myself. The blog is coming soon. In the meantime, the fastest way to follow
-            along is LinkedIn.
+            myself. The first two long-form pieces are already live: the full product
+            &amp; engineering write-ups of <a href="/sorir/">Sorir</a> and
+            <a href="/beeingbaniya/">BeeingBaniya</a> &mdash; how each was conceived,
+            architected, and shipped solo with AI agents. The blog proper is coming soon;
+            the fastest way to follow along is LinkedIn.
           </p>
         </div>
         <div class="writing__cta">
@@ -401,7 +490,10 @@
         <li><a href="mailto:sourav.hitk@gmail.com">sourav.hitk@gmail.com</a></li>
         <li><a href="https://www.beeingbaniya.com/" target="_blank" rel="noopener noreferrer">beeingbaniya.com</a></li>
       </ul>
-      <p class="footer__note">&copy; <span id="year">2026</span> Sourav Kundu. Built with plain HTML &amp; CSS.</p>
+      <p class="footer__note">
+        <a href="/sorir/">Sorir</a> &middot; <a href="https://www.beeingbaniya.com/" target="_blank" rel="noopener noreferrer">BeeingBaniya</a> &middot;
+        &copy; <span id="year">2026</span> Sourav Kundu. Built with plain HTML &amp; CSS.
+      </p>
     </div>
   </footer>
 
