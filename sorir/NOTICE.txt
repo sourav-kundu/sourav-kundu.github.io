@@ -7,10 +7,8 @@ Sorir, the name "Sorir" (শরীর), the domain sorir.ai, and everything pres
 on this page and within this directory — including but not limited to the
 product concept, the user experience, the visual and brand design (the "Liquid
 Glass" treatment, the flowing-figure / "S" mark, the color system, the app
-icon and logo), the software architecture, the system and data-flow diagrams,
-the multi-LLM gateway design, the memory architecture, the routing and cost
-model, the copy, and all other designs, concepts, methods, and ideas herein
-(collectively, the "Materials") — are the proprietary work and sole property
+icon and logo), the software, the copy, and all other designs, concepts,
+methods, and ideas herein (collectively, the "Materials") — are the proprietary work and sole property
 of Sourav Kundu (the "Author").
 
 THIS IS NOT OPEN-SOURCE SOFTWARE. No license, express or implied, is granted
@@ -20,8 +18,8 @@ You may NOT, in whole or in part, without the prior written permission of the
 Author:
   - copy, reproduce, republish, or redistribute the Materials;
   - modify, adapt, translate, or create derivative works from the Materials;
-  - reverse-engineer, reuse, or repurpose the architecture, designs, concepts,
-    diagrams, or ideas described herein;
+  - reverse-engineer, reuse, or repurpose the designs, concepts, or ideas
+    described herein;
   - use any of the Materials for commercial or non-commercial purposes;
   - remove or alter this notice or any proprietary or copyright markings.
 

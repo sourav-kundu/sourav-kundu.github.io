@@ -19,6 +19,12 @@ private or personal. When in doubt, **leave it out.**
   this stays private.
 - **Internal or confidential company information** — internal levels, org internals, confidential metrics.
 - **Personal / private detail** — family, health, finances, home address, phone number.
+- **Product internals and intellectual property** — for Sorir, BeeingBaniya or anything else the owner
+  builds. Pages say what a user can achieve and name the engineering stack at a high level (Swift,
+  TypeScript, Postgres, Vercel, Claude). Naming a concept at headline level is fine ("a layered memory
+  architecture"). Explaining it is not: never what the layers are, how querying works, model routing,
+  prompts, algorithms, formulas, scoring factors or weights, eval or A/B results, token counts, cost
+  mechanics, pipelines, thresholds or security design.
 
 This site is a **professional showcase only**. The source of truth for any private material lives in
 **separate private working files outside this repo** and must **never** be copied in.

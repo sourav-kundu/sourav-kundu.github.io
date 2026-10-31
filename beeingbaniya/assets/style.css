@@ -305,54 +305,6 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
 .tag-cat { background: rgba(34, 197, 94, 0.16); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
 .tag-ai { background: rgba(157, 107, 255, 0.16); color: var(--violet-soft); border: 1px solid rgba(157, 107, 255, 0.3); }
 
-/* ------------------------------------------------------ BLUEPRINT */
-.blueprint-diagram {
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-  padding: 30px;
-  margin-bottom: 22px;
-  overflow-x: auto;
-}
-.blueprint-diagram svg { width: 100%; min-width: 720px; height: auto; display: block; }
-
-.bp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-.bp-card { border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface); padding: 24px; }
-.bp-card h3 { font-size: 17px; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
-.bp-card h3 .num {
-  width: 26px; height: 26px; flex: none; border-radius: 8px; display: grid; place-items: center;
-  font-size: 13px; background: rgba(109, 58, 212, 0.2); color: var(--violet-bright); border: 1px solid rgba(157, 107, 255, 0.3);
-}
-.steps { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; gap: 11px; }
-.steps li { position: relative; padding-left: 30px; color: var(--muted); font-size: 14.5px; counter-increment: s; }
-.steps li::before {
-  content: counter(s); position: absolute; left: 0; top: 0;
-  width: 21px; height: 21px; border-radius: 6px; display: grid; place-items: center;
-  font-size: 11px; font-weight: 700; font-family: var(--font-display);
-  background: rgba(157, 107, 255, 0.14); color: var(--violet-soft); border: 1px solid rgba(157, 107, 255, 0.22);
-}
-.steps li b { color: var(--text); font-weight: 600; }
-.steps code, .inline-code {
-  font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px;
-  background: rgba(255, 255, 255, 0.06); padding: 1px 6px; border-radius: 5px; color: var(--violet-soft);
-}
-
-/* AI table */
-.ai-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-.ai-table th, .ai-table td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); }
-.ai-table th { font-family: var(--font-display); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dim); font-weight: 600; }
-.ai-table td { color: var(--muted); vertical-align: top; }
-.ai-table td b { color: var(--text); font-weight: 600; }
-.model-badge { display: inline-block; padding: 2px 9px; border-radius: 7px; font-size: 12px; font-weight: 600; background: rgba(109, 58, 212, 0.16); color: var(--violet-soft); border: 1px solid rgba(157, 107, 255, 0.28); white-space: nowrap; }
-
-/* data model entities */
-.entity { border-radius: 14px; border: 1px solid var(--line); background: var(--surface); padding: 18px 20px; }
-.entity h4 { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 14px; color: var(--violet-bright); margin: 0 0 10px; display: flex; align-items: center; gap: 8px; }
-.entity h4 svg { width: 15px; height: 15px; opacity: 0.7; }
-.entity ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
-.entity li { font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; }
-.entity li .type { color: var(--dim); font-family: ui-monospace, monospace; font-size: 11.5px; }
-
 /* mock UI (sample data) */
 .mock {
   border-radius: 16px; border: 1px solid var(--line);
@@ -442,7 +394,7 @@ footer { border-top: 1px solid var(--line); padding: 48px 0 60px; }
   section { padding: 68px 0; }
   .hero-grid, .problem-grid { grid-template-columns: 1fr; gap: 40px; }
   .hero-card { order: -1; }
-  .bp-grid, .cols-2, .cols-3 { grid-template-columns: 1fr; }
+  .cols-2, .cols-3 { grid-template-columns: 1fr; }
   .nav-links {
     position: fixed; inset: 66px 0 auto 0; flex-direction: column; align-items: flex-start;
     gap: 4px; padding: 18px 24px 26px; background: rgba(11, 9, 18, 0.98);
